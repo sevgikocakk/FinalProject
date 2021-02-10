@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Hangi sunucuya ve oradaki hangi veritabanına bağlanacağımızı belirttik.
-            optionsBuilder.UseSqlServer(@"Server = (localdb)\mssqllocaldb; Database=Nortwind;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server = (localdb)\mssqllocaldb; Database=Northwind;Trusted_Connection=true");
         }
 
      
@@ -21,5 +21,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
