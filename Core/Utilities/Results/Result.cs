@@ -6,7 +6,7 @@ namespace Core.Utilities.Results
 {
     public class Result : IResult
     {
-        
+        //result voidler için.
         //ctorumuz iki tane parametre istiyor.
         //Get'ler read onlydir ama readonlyliler ctorda set edilebilir.
         //this demek classın kendisi demek yani resultı kast ediyor.
