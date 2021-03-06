@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -21,20 +22,23 @@ namespace Business.Concrete
         //Burada businessin hangi veri erişim yöntemini kullanacağını belirtiyoruz.
         //Ctor injection yapıldı.3
         IProductDal _productDal;
+        
 
         public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
+            
         }
 
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
+               
+                _productDal.Add(product);
+
+                return new SuccessResult(Messages.ProductAdded);
             
-
-             _productDal.Add(product);
-
-            return new SuccessResult(Messages.ProductAdded);
+             
         }
 
         public IDataResult<List<Product>> GetAll()
